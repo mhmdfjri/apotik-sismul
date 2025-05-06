@@ -142,7 +142,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </div>
         </div>
         <a
-          href="<?= site_url('index') ?>"
+          href="<?= site_url('/') ?>"
           class="flex items-center px-6 py-3 bg-white/20 text-white">
           <div class="w-6 h-6 flex items-center justify-center">
             <i class="ri-dashboard-line"></i>
@@ -159,7 +159,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <span class="ml-3 text-sm font-medium">Data Obat</span>
         </a>
         <a
-          href="#"
+          href="<?= site_url('kategori/index') ?>"
           class="flex items-center px-6 py-3 text-white/80 hover:bg-white/10 transition-colors">
           <div class="w-6 h-6 flex items-center justify-center">
             <i class="ri-folder-line"></i>
@@ -346,7 +346,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               Export
             </button>
             <a
-              href="https://readdy.ai/home/b26825ae-f136-4bd7-a7c8-279c95568b86/4a545f66-14ff-4732-b636-8ee83ad39903"
+              href=""
               data-readdy="true">
               <button
                 class="bg-secondary text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-secondary/90 transition flex items-center">
@@ -405,7 +405,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded">
                       <img
                         class="h-10 w-10 rounded object-cover"
-                        src="https://readdy.ai/api/search-image?query=Amoxicillin%20medicine%20bottle%20with%20white%20pills%2C%20pharmaceutical%20product%20on%20clean%20white%20background%2C%20professional%20product%20photography&width=100&height=100&seq=1&orientation=squarish"
+                        src=""
                         alt="Amoxicillin" />
                     </div>
                     <div class="ml-4">
@@ -460,7 +460,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded">
                       <img
                         class="h-10 w-10 rounded object-cover"
-                        src="https://readdy.ai/api/search-image?query=Ibuprofen%20medicine%20bottle%20with%20white%20and%20red%20pills%2C%20pharmaceutical%20product%20on%20clean%20white%20background%2C%20professional%20product%20photography&width=100&height=100&seq=2&orientation=squarish"
+                        src=""
                         alt="Ibuprofen" />
                     </div>
                     <div class="ml-4">
@@ -515,7 +515,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded">
                       <img
                         class="h-10 w-10 rounded object-cover"
-                        src="https://readdy.ai/api/search-image?query=Paracetamol%20medicine%20bottle%20with%20white%20tablets%2C%20pharmaceutical%20product%20on%20clean%20white%20background%2C%20professional%20product%20photography&width=100&height=100&seq=3&orientation=squarish"
+                        src=""
                         alt="Paracetamol" />
                     </div>
                     <div class="ml-4">
@@ -570,7 +570,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded">
                       <img
                         class="h-10 w-10 rounded object-cover"
-                        src="https://readdy.ai/api/search-image?query=Azithromycin%20medicine%20bottle%20with%20blue%20and%20white%20capsules%2C%20pharmaceutical%20product%20on%20clean%20white%20background%2C%20professional%20product%20photography&width=100&height=100&seq=4&orientation=squarish"
+                        src=""
                         alt="Azithromycin" />
                     </div>
                     <div class="ml-4">
@@ -625,7 +625,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded">
                       <img
                         class="h-10 w-10 rounded object-cover"
-                        src="https://readdy.ai/api/search-image?query=Vitamin%20D%20medicine%20bottle%20with%20yellow%20soft%20gel%20capsules%2C%20pharmaceutical%20product%20on%20clean%20white%20background%2C%20professional%20product%20photography&width=100&height=100&seq=5&orientation=squarish"
+                        src=""
                         alt="Vitamin D" />
                     </div>
                     <div class="ml-4">
@@ -680,7 +680,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded">
                       <img
                         class="h-10 w-10 rounded object-cover"
-                        src="https://readdy.ai/api/search-image?query=Omeprazole%20medicine%20bottle%20with%20blue%20and%20purple%20capsules%2C%20pharmaceutical%20product%20on%20clean%20white%20background%2C%20professional%20product%20photography&width=100&height=100&seq=6&orientation=squarish"
+                        src=""
                         alt="Omeprazole" />
                     </div>
                     <div class="ml-4">
@@ -728,14 +728,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </button>
                   </div>
                 </td>
-              </tr>
+              </tr>z
               <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded">
                       <img
                         class="h-10 w-10 rounded object-cover"
-                        src="https://readdy.ai/api/search-image?query=Loratadine%20medicine%20bottle%20with%20white%20tablets%2C%20pharmaceutical%20product%20on%20clean%20white%20background%2C%20professional%20product%20photography&width=100&height=100&seq=7&orientation=squarish"
+                        src=""
                         alt="Loratadine" />
                     </div>
                     <div class="ml-4">

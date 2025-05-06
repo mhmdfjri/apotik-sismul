@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <a
-                    href="https://readdy.ai/home/b26825ae-f136-4bd7-a7c8-279c95568b86/fe94e2a4-6ab3-4b86-8224-37123216cc77"
+                    href=""
                     data-readdy="true"
                     class="flex items-center px-6 py-3 text-white/80 hover:bg-white/10 transition-colors">
                     <div class="w-6 h-6 flex items-center justify-center">

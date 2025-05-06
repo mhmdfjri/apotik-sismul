@@ -264,17 +264,28 @@
 
         <!-- Dashboard Content -->
         <div class="p-6">
-            <!-- Search and Filter Section -->
             <div class="bg-white rounded shadow mb-6">
-                <div
-                    class="p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div>
-                        <h2 class="text-lg font-medium text-gray-800">Inventaris Obat</h2>
+                        <h2 class="text-lg font-medium text-gray-800">Kategori Obat</h2>
                     </div>
                     <div class="flex gap-3">
-                        <a
-                            href="<?= site_url('kategori/create') ?>"
-                            data-readdy="true">
+                        <!-- Tombol Hapus Semua -->
+                        <form action="<?= site_url('kategori/delete_all') ?>" method="post">
+                            <button
+                                type="button"
+                                id="openDeleteModal"
+                                class="bg-red-500 text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-red-600 transition flex items-center text-sm">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-delete-bin-line"></i>
+                                </div>
+                                Hapus Semua
+                            </button>
+
+                        </form>
+
+                        <!-- Tombol Tambah Kategori -->
+                        <a href="<?= site_url('kategori/create') ?>" data-readdy="true">
                             <button
                                 class="bg-secondary text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-secondary/90 transition flex items-center text-sm">
                                 <div class="w-5 h-5 flex items-center justify-center mr-1">
@@ -308,71 +319,42 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-4">
-                                    <div class="custom-checkbox"></div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                        Antibiotik
-                                    </span>
-                                </td>
+                            <?php foreach ($kategori as $item): ?>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-4">
+                                        <div class="custom-checkbox"></div>
+                                    </td>
 
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <div class="flex space-x-2">
-                                        <button class="text-primary hover:text-primary/80">
-                                            <div class="w-5 h-5 flex items-center justify-center">
-                                                <i class="ri-eye-line"></i>
-                                            </div>
-                                        </button>
-                                        <button class="text-primary hover:text-primary/80">
-                                            <div class="w-5 h-5 flex items-center justify-center">
-                                                <i class="ri-edit-line"></i>
-                                            </div>
-                                        </button>
-                                        <button class="text-red-500 hover:text-red-600">
-                                            <div class="w-5 h-5 flex items-center justify-center">
-                                                <i class="ri-delete-bin-line"></i>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-4">
-                                    <div class="custom-checkbox"></div>
-                                </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-sm leading-5 font-semibold text-gray-800">
+                                            <?= $item->nama_kategori ?>
+                                        </span>
+                                    </td>
 
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Analgesik
-                                    </span>
-                                </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <div class="flex space-x-2">
+                                            <a href="<?= base_url('index.php/kategori/edit/' . $item->id_kategori) ?>" class="text-primary hover:text-primary/80">
+                                                <div class="w-5 h-5 flex items-center justify-center">
+                                                    <i class="ri-edit-line"></i>
+                                                </div>
+                                            </a>
+                                            <button
+                                                type="button"
+                                                class="text-red-500 hover:text-red-600 btn-delete-kategori"
+                                                data-id="<?= $item->id_kategori ?>"
+                                                data-nama="<?= $item->nama_kategori ?>">
+                                                <div class="w-5 h-5 flex items-center justify-center">
+                                                    <i class="ri-delete-bin-line"></i>
+                                                </div>
+                                            </button>
 
-
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <div class="flex space-x-2">
-                                        <button class="text-primary hover:text-primary/80">
-                                            <div class="w-5 h-5 flex items-center justify-center">
-                                                <i class="ri-eye-line"></i>
-                                            </div>
-                                        </button>
-                                        <button class="text-primary hover:text-primary/80">
-                                            <div class="w-5 h-5 flex items-center justify-center">
-                                                <i class="ri-edit-line"></i>
-                                            </div>
-                                        </button>
-                                        <button class="text-red-500 hover:text-red-600">
-                                            <div class="w-5 h-5 flex items-center justify-center">
-                                                <i class="ri-delete-bin-line"></i>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
+
+
                     </table>
                 </div>
                 <div
@@ -437,9 +419,9 @@
                 </div>
             </div>
 
-            <!-- Delete Confirmation Modal (Hidden by default) -->
+            <!-- Delete by id -->
             <div
-                id="deleteModal"
+                id="deleteKategoriModal"
                 class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 hidden">
                 <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
                     <div class="text-center">
@@ -451,8 +433,43 @@
                             Konfirmasi Hapus
                         </h3>
                         <p class="text-sm text-gray-500 mb-6">
-                            Apakah Anda yakin ingin menghapus obat ini? Tindakan ini tidak
-                            dapat dibatalkan.
+                            Apakah Anda yakin ingin menghapus kategori <strong id="namaKategoriTarget"></strong>?
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <button
+                                id="cancelKategoriDelete"
+                                class="px-4 py-2 bg-gray-200 text-gray-800 rounded-button hover:bg-gray-300 transition">
+                                Batal
+                            </button>
+
+                            <form id="formHapusKategori" method="post">
+                                <button
+                                    type="submit"
+                                    class="px-4 py-2 bg-red-500 text-white rounded-button hover:bg-red-600 transition">
+                                    Ya, Hapus
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- delete all categories -->
+            <div
+                id="deleteModal"
+                class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 hidden">
+                <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 mx-auto flex items-center justify-center bg-red-100 text-red-500 rounded-full mb-4">
+                            <i class="ri-error-warning-line ri-2x"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">
+                            Konfirmasi Hapus Semua
+                        </h3>
+                        <p class="text-sm text-gray-500 mb-6">
+                            Apakah Anda yakin ingin menghapus <strong>semua kategori</strong>? Tindakan ini tidak dapat dibatalkan.
                         </p>
                         <div class="flex justify-center space-x-3">
                             <button
@@ -460,99 +477,22 @@
                                 class="px-4 py-2 bg-gray-200 text-gray-800 rounded-button whitespace-nowrap hover:bg-gray-300 transition">
                                 Batal
                             </button>
-                            <button
-                                id="confirmDelete"
-                                class="px-4 py-2 bg-red-500 text-white rounded-button whitespace-nowrap hover:bg-red-600 transition">
-                                Ya, Hapus
-                            </button>
+
+                            <form id="deleteAllForm" method="post" action="<?= site_url('kategori/delete_all') ?>">
+                                <button
+                                    type="submit"
+                                    class="px-4 py-2 bg-red-500 text-white rounded-button whitespace-nowrap hover:bg-red-600 transition">
+                                    Ya, Hapus Semua
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Table sorting functionality
-            const tableHeaders = document.querySelectorAll("table th");
-            tableHeaders.forEach((header) => {
-                header.addEventListener("click", function() {
-                    // Skip the checkbox column
-                    if (!this.querySelector(".sort-icon")) return;
-
-                    // Toggle sort direction
-                    const currentIcon = this.querySelector(".sort-icon i");
-                    if (currentIcon.classList.contains("ri-arrow-up-s-line")) {
-                        currentIcon.classList.remove("ri-arrow-up-s-line");
-                        currentIcon.classList.add("ri-arrow-down-s-line");
-                    } else {
-                        currentIcon.classList.remove("ri-arrow-down-s-line");
-                        currentIcon.classList.add("ri-arrow-up-s-line");
-                    }
-
-                    // Reset other headers
-                    tableHeaders.forEach((h) => {
-                        if (h !== this && h.querySelector(".sort-icon")) {
-                            const icon = h.querySelector(".sort-icon i");
-                            icon.classList.remove("ri-arrow-up-s-line", "ri-arrow-down-s-line");
-                            icon.classList.add("ri-arrow-down-s-line");
-                        }
-                    });
-                });
-            });
-
-            // Custom checkbox functionality
-            const checkboxes = document.querySelectorAll(".custom-checkbox");
-            const selectAllCheckbox = document.getElementById("selectAll");
-
-            checkboxes.forEach((checkbox) => {
-                checkbox.addEventListener("click", function() {
-                    this.classList.toggle("checked");
-
-                    // If this is not the selectAll checkbox and it's unchecked, uncheck selectAll
-                    if (this !== selectAllCheckbox && !this.classList.contains("checked")) {
-                        selectAllCheckbox.classList.remove("checked");
-                    }
-
-                    // If this is the selectAll checkbox, update all other checkboxes
-                    if (this === selectAllCheckbox) {
-                        const isChecked = this.classList.contains("checked");
-                        checkboxes.forEach((cb) => {
-                            if (isChecked) {
-                                cb.classList.add("checked");
-                            } else {
-                                cb.classList.remove("checked");
-                            }
-                        });
-                    }
-                });
-            });
-
-            // Delete modal functionality
-            const deleteButtons = document
-                .querySelectorAll("button .ri-delete-bin-line")
-                .forEach((button) => {
-                    button.closest("button").addEventListener("click", function() {
-                        document.getElementById("deleteModal").classList.remove("hidden");
-                    });
-                });
-
-            document
-                .getElementById("cancelDelete")
-                .addEventListener("click", function() {
-                    document.getElementById("deleteModal").classList.add("hidden");
-                });
-
-            document
-                .getElementById("confirmDelete")
-                .addEventListener("click", function() {
-                    // Here you would add the actual delete logic
-                    document.getElementById("deleteModal").classList.add("hidden");
-                    // Show a success message or refresh the table
-                });
-        });
-    </script>
 
     <?php if ($this->session->flashdata('success')): ?>
         <!-- Success Notification -->
@@ -590,6 +530,39 @@
             });
         </script>
     <?php endif; ?>
+
+    <script>
+        const modal = document.getElementById('deleteKategoriModal');
+        const cancelBtn = document.getElementById('cancelKategoriDelete');
+        const namaTarget = document.getElementById('namaKategoriTarget');
+        const form = document.getElementById('formHapusKategori');
+        const deleteModal = document.getElementById('deleteModal');
+        const openDeleteModal = document.getElementById('openDeleteModal');
+        const cancelDelete = document.getElementById('cancelDelete');
+
+        openDeleteModal.addEventListener('click', () => {
+            deleteModal.classList.remove('hidden');
+        });
+
+        cancelDelete.addEventListener('click', () => {
+            deleteModal.classList.add('hidden');
+        });
+        document.querySelectorAll('.btn-delete-kategori').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-id');
+                const nama = btn.getAttribute('data-nama');
+
+                namaTarget.textContent = nama;
+                form.action = `<?= base_url('index.php/kategori/delete/') ?>${id}`;
+                modal.classList.remove('hidden');
+            });
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    </script>
+
 </body>
 
 </html>

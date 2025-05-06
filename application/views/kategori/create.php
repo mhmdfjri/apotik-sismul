@@ -164,7 +164,7 @@
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
                     <a
-                        href="<?= site_url('obat/index') ?>"
+                        href="<?= site_url('kategori/index') ?>"
                         data-readdy="true"
                         class="flex items-center text-gray-600 hover:text-primary transition-colors mr-4">
                         <div class="w-6 h-6 flex items-center justify-center">

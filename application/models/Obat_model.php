@@ -23,13 +23,43 @@ class Obat_model extends CI_Model
 
     public function updateById($id, $data)
     {
-        $this->db->where('id_obat', $id);
-        return $this->db->update('obat', $data);
+        return $this->db->update('obat', $data, ['id_obat' => $id]);
     }
+
 
     public function deleteById($id)
     {
-        $this->db->where('id_obat', $id);
-        return $this->db->delete('obat');
+        // Ambil data obat berdasarkan ID
+        $obat = $this->db->get_where('obat', ['id_obat' => $id])->row();
+
+        if ($obat) {
+            // Hapus file gambar jika ada
+            $gambar_path = FCPATH . 'uploads/' . $obat->gambar_obat;
+            if (file_exists($gambar_path) && is_file($gambar_path)) {
+                unlink($gambar_path);
+            }
+
+            // Hapus data dari database
+            return $this->db->delete('obat', ['id_obat' => $id]);
+        }
+
+        return false;
+    }
+
+
+    public function deleteAll()
+    {
+        // Ambil semua gambar dulu
+        $obat_list = $this->db->get('obat')->result();
+
+        foreach ($obat_list as $obat) {
+            $gambar_path = FCPATH . 'uploads/' . $obat->gambar_obat;
+            if (file_exists($gambar_path) && is_file($gambar_path)) {
+                unlink($gambar_path);
+            }
+        }
+
+        // Kosongkan tabel obat
+        return $this->db->empty_table('obat');
     }
 }

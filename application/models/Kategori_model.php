@@ -34,4 +34,19 @@ class Kategori_model extends CI_Model
     {
         return $this->db->empty_table('kategori');
     }
+
+	// Ambil data dengan paginasi
+	public function getPaginated($limit, $offset)
+	{
+		return $this->db->get('kategori', $limit, $offset)->result();
+	}
+
+	// Hitung total kategori
+	public function countAll()
+	{
+		return $this->db->count_all('kategori');
+	}
+
+
+
 }

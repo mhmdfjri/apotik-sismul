@@ -10,11 +10,33 @@ class Kategori extends CI_Controller
         $this->load->helper(['form', 'url']);
     }
 
-    public function index()
-    {
-        $data['kategori'] = $this->Kategori_model->getAll();
-        $this->load->view('kategori/index', $data);
-    }
+	public function index()
+	{
+		// Ambil limit dan page dari URL, jika tidak ada, set default 10 dan 1
+		$limit = $this->input->get('limit', TRUE) ?: 10;
+		$page = $this->input->get('page', TRUE) ?: 1;
+
+		// Hitung offset untuk query
+		$offset = ($page - 1) * $limit;
+
+		// Ambil data kategori dengan paginasi
+		$data['kategori'] = $this->Kategori_model->getPaginated($limit, $offset);
+		
+		// Hitung jumlah total kategori
+		$totalKategori = $this->Kategori_model->countAll();
+		
+		// Hitung jumlah total halaman
+		$data['totalPages'] = ceil($totalKategori / $limit);
+		
+		// Kirim data ke view, termasuk $page dan $totalKategori
+		$data['page'] = $page;
+		$data['limit'] = $limit;
+		$data['totalKategori'] = $totalKategori;
+
+		// Kirim ke view
+		$this->load->view('kategori/index', $data);
+	}
+
 
     public function create()
     {

@@ -62,4 +62,19 @@ class Obat_model extends CI_Model
         // Kosongkan tabel obat
         return $this->db->empty_table('obat');
     }
+
+	public function getPaginated($limit, $offset)
+	{
+		$this->db->select('obat.*, kategori.nama_kategori');
+		$this->db->from('obat');
+		$this->db->join('kategori', 'kategori.id_kategori = obat.id_kategori');
+		$this->db->limit($limit, $offset); // Apply limit and offset for pagination
+		return $this->db->get()->result();
+	}
+
+	public function countAll()
+	{
+		return $this->db->count_all('obat');
+	}
+
 }

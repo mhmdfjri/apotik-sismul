@@ -218,6 +218,38 @@
 
             <!-- Medicine Table -->
             <div class="bg-white rounded shadow overflow-hidden">
+                <div class="p-4 border-b border-gray-200">
+                    <form method="get" action="<?= site_url('obat') ?>" class="flex items-center">
+                        <div class="relative flex-1">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="ri-search-line text-gray-400"></i>
+                            </div>
+                            <input type="text" name="search" value="<?= html_escape($search) ?>" 
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full pl-10 p-2.5" 
+                                placeholder="Cari nama obat...">
+                            <input type="hidden" name="limit" value="<?= $limit ?>">
+                        </div>
+                        <button type="submit" 
+                                class="ml-2 px-4 py-2.5 bg-primary text-white rounded-button hover:bg-primary/90 transition">
+                            Cari
+                        </button>
+                        <?php if ($search): ?>
+                            <a href="<?= site_url('obat') ?>" 
+                            class="ml-2 px-4 py-2.5 bg-gray-200 text-gray-700 rounded-button hover:bg-gray-300 transition">
+                                Reset
+                            </a>
+                        <?php endif; ?>
+                    </form>
+                </div>
+
+                <!-- Di bagian atas tabel, setelah form pencarian -->
+                <?php if ($search): ?>
+                <div class="px-6 py-3 bg-blue-50 text-blue-800 text-sm">
+                    Menampilkan hasil pencarian untuk: <strong>"<?= html_escape($search) ?>"</strong>. 
+                    Ditemukan <?= $totalObat ?> obat.
+                </div>
+                <?php endif; ?>
+
                 <div class="overflow-x-auto">
                     <table class="w-full">
                         <thead>
@@ -252,6 +284,12 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <div class="flex space-x-2">
+                                        <a href="<?= base_url('index.php/obat/read/' . $item->id_obat) ?>"
+                                            class="text-blue-500 hover:text-blue-700">
+                                            <div class="w-5 h-5 flex items-center justify-center">
+                                                <i class="ri-eye-line"></i>
+                                            </div>
+                                        </a>
                                         <a href="<?= base_url('index.php/obat/edit/' . $item->id_obat) ?>"
                                             class="text-primary hover:text-primary/80">
                                             <div class="w-5 h-5 flex items-center justify-center">
@@ -284,9 +322,10 @@
                     </div>
                     <div class="flex items-center space-x-2">
 
+                        <!-- Di bagian pagination, update link seperti ini: -->
                         <nav class="flex items-center">
                             <!-- Tombol Prev -->
-                            <a href="?page=<?= max(1, $page - 1) ?>&limit=<?= $limit ?>"
+                            <a href="?page=<?= max(1, $page - 1) ?>&limit=<?= $limit ?><?= $search ? '&search='.urlencode($search) : '' ?>"
                                 class="px-2 py-1 border border-gray-200 rounded-l-md text-gray-500 hover:bg-gray-50">
                                 <div class="w-5 h-5 flex items-center justify-center">
                                     <i class="ri-arrow-left-s-line"></i>
@@ -295,14 +334,14 @@
 
                             <!-- Tombol Halaman -->
                             <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                            <a href="?page=<?= $i ?>&limit=<?= $limit ?>"
+                            <a href="?page=<?= $i ?>&limit=<?= $limit ?><?= $search ? '&search='.urlencode($search) : '' ?>"
                                 class="px-3 py-1 border-t border-b border-gray-200 <?= $i == $page ? 'bg-primary text-white' : 'text-gray-700 hover:bg-gray-50' ?>">
                                 <?= $i ?>
                             </a>
                             <?php endfor; ?>
 
                             <!-- Tombol Next -->
-                            <a href="?page=<?= min($totalPages, $page + 1) ?>&limit=<?= $limit ?>"
+                            <a href="?page=<?= min($totalPages, $page + 1) ?>&limit=<?= $limit ?><?= $search ? '&search='.urlencode($search) : '' ?>"
                                 class="px-2 py-1 border border-gray-200 rounded-r-md text-gray-500 hover:bg-gray-50">
                                 <div class="w-5 h-5 flex items-center justify-center">
                                     <i class="ri-arrow-right-s-line"></i>

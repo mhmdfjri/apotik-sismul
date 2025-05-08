@@ -12,32 +12,34 @@ class Obat extends CI_Controller
         $this->load->helper(['form', 'url']);
     }
 
-   public function index()
-	{
-		// Get limit and page from the URL or set default values
-		$limit = $this->input->get('limit', TRUE) ?: 10;
-		$page = $this->input->get('page', TRUE) ?: 1;
-
-		// Calculate the offset for the query
-		$offset = ($page - 1) * $limit;
-
-		// Get paginated obat data
-		$data['obat'] = $this->Obat_model->getPaginated($limit, $offset);
-		
-		// Get the total number of obat records
-		$totalObat = $this->Obat_model->countAll();
-		
-		// Calculate the total number of pages
-		$data['totalPages'] = ceil($totalObat / $limit);
-		
-		// Pass additional data to the view
-		$data['page'] = $page;
-		$data['limit'] = $limit;
-		$data['totalObat'] = $totalObat;
-
-		// Load the view
-		$this->load->view('obat/index', $data);
-	}
+    public function index()
+    {
+        // Get limit, page, and search term from the URL or set default values
+        $limit = $this->input->get('limit', TRUE) ?: 10;
+        $page = $this->input->get('page', TRUE) ?: 1;
+        $search = $this->input->get('search', TRUE);
+    
+        // Calculate the offset for the query
+        $offset = ($page - 1) * $limit;
+    
+        // Get paginated obat data with search
+        $data['obat'] = $this->Obat_model->getPaginated($limit, $offset, $search);
+        
+        // Get the total number of obat records (with search filter if any)
+        $totalObat = $this->Obat_model->countAll($search);
+        
+        // Calculate the total number of pages
+        $data['totalPages'] = ceil($totalObat / $limit);
+        
+        // Pass additional data to the view
+        $data['page'] = $page;
+        $data['limit'] = $limit;
+        $data['totalObat'] = $totalObat;
+        $data['search'] = $search; // Pass search term back to view
+    
+        // Load the view
+        $this->load->view('obat/index', $data);
+    }
 
 
     public function create()
@@ -76,6 +78,18 @@ class Obat extends CI_Controller
         $this->Obat_model->save($data);
         $this->session->set_flashdata('success', 'Obat berhasil ditambahkan');
         redirect('obat');
+    }
+
+    public function read($id)
+    {
+        $data['obat'] = $this->Obat_model->getDetailById($id);
+        
+        if (!$data['obat']) {
+            $this->session->set_flashdata('error', 'Obat tidak ditemukan.');
+            return redirect('obat');
+        }
+
+        $this->load->view('obat/detail', $data);
     }
 
     public function edit($id)

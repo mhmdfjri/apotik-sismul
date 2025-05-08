@@ -1,5 +1,5 @@
 <?php
-// application/controllers/Dashboard.php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Obat extends CI_Controller
@@ -12,11 +12,33 @@ class Obat extends CI_Controller
         $this->load->helper(['form', 'url']);
     }
 
-    public function index()
-    {
-        $data['obat'] = $this->Obat_model->getAll(); // ambil data dari model
-        $this->load->view('obat/index', $data);      // kirim ke view
-    }
+   public function index()
+	{
+		// Get limit and page from the URL or set default values
+		$limit = $this->input->get('limit', TRUE) ?: 10;
+		$page = $this->input->get('page', TRUE) ?: 1;
+
+		// Calculate the offset for the query
+		$offset = ($page - 1) * $limit;
+
+		// Get paginated obat data
+		$data['obat'] = $this->Obat_model->getPaginated($limit, $offset);
+		
+		// Get the total number of obat records
+		$totalObat = $this->Obat_model->countAll();
+		
+		// Calculate the total number of pages
+		$data['totalPages'] = ceil($totalObat / $limit);
+		
+		// Pass additional data to the view
+		$data['page'] = $page;
+		$data['limit'] = $limit;
+		$data['totalObat'] = $totalObat;
+
+		// Load the view
+		$this->load->view('obat/index', $data);
+	}
+
 
     public function create()
     {

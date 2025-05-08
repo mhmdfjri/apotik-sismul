@@ -109,20 +109,7 @@
                 </a>
             </nav>
         </div>
-        <div class="p-4">
-            <a href="#" class="flex items-center px-4 py-2 text-white/80 hover:bg-white/10 rounded transition-colors">
-                <div class="w-6 h-6 flex items-center justify-center">
-                    <i class="ri-settings-line"></i>
-                </div>
-                <span class="ml-3 text-sm font-medium">Settings</span>
-            </a>
-            <a href="#" class="flex items-center px-4 py-2 text-white/80 hover:bg-white/10 rounded transition-colors">
-                <div class="w-6 h-6 flex items-center justify-center">
-                    <i class="ri-logout-box-line"></i>
-                </div>
-                <span class="ml-3 text-sm font-medium">Logout</span>
-            </a>
-        </div>
+
     </div>
 
     <!-- Main Content -->

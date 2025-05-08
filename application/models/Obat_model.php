@@ -26,6 +26,15 @@ class Obat_model extends CI_Model
         return $this->db->update('obat', $data, ['id_obat' => $id]);
     }
 
+    public function getDetailById($id)
+    {
+        $this->db->select('obat.*, kategori.nama_kategori');
+        $this->db->from('obat');
+        $this->db->join('kategori', 'kategori.id_kategori = obat.id_kategori');
+        $this->db->where('obat.id_obat', $id);
+        return $this->db->get()->row();
+    }
+
 
     public function deleteById($id)
     {
@@ -63,18 +72,28 @@ class Obat_model extends CI_Model
         return $this->db->empty_table('obat');
     }
 
-	public function getPaginated($limit, $offset)
-	{
-		$this->db->select('obat.*, kategori.nama_kategori');
-		$this->db->from('obat');
-		$this->db->join('kategori', 'kategori.id_kategori = obat.id_kategori');
-		$this->db->limit($limit, $offset); // Apply limit and offset for pagination
-		return $this->db->get()->result();
-	}
+	public function getPaginated($limit, $offset, $search = null)
+    {
+        $this->db->select('obat.*, kategori.nama_kategori');
+        $this->db->from('obat');
+        $this->db->join('kategori', 'kategori.id_kategori = obat.id_kategori');
+        
+        if ($search) {
+            $this->db->like('obat.nama_obat', $search);
+        }
+        
+        $this->db->limit($limit, $offset);
+        return $this->db->get()->result();
+    }
 
-	public function countAll()
-	{
-		return $this->db->count_all('obat');
-	}
+    public function countAll($search = null)
+    {
+        $this->db->from('obat');
+        if ($search) {
+            $this->db->like('nama_obat', $search);
+        }
+        
+        return $this->db->count_all_results();
+    }
 
 }

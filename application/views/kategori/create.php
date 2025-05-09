@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add New Medicine</title>
+    <title>Menambahkan Obat Baru</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
     tailwind.config = {
@@ -30,12 +30,14 @@
         },
     };
     </script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+    <!-- Internal CSS -->
     <style>
     :where([class^="ri-"])::before {
         content: "\f3c2";
@@ -94,8 +96,6 @@
         </div>
         <div class="flex-1 overflow-y-auto">
             <nav class="mt-6">
-
-
                 <a href="<?= site_url('obat/index') ?>"
                     class="flex items-center px-6 py-3 text-white/80 hover:bg-white/10 transition-colors">
                     <div class="w-6 h-6 flex items-center justify-center">

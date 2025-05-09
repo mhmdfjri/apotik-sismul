@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add New Medicine</title>
+    <title>Edit Data Obat</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
     tailwind.config = {
@@ -94,14 +94,6 @@
         </div>
         <div class="flex-1 overflow-y-auto">
             <nav class="mt-6">
-
-                <a href="" data-readdy="true"
-                    class="flex items-center px-6 py-3 text-white/80 hover:bg-white/10 transition-colors">
-                    <div class="w-6 h-6 flex items-center justify-center">
-                        <i class="ri-dashboard-line"></i>
-                    </div>
-                    <span class="ml-3 text-sm font-medium">Dashboard</span>
-                </a>
                 <a href="<?= site_url('obat/index') ?>"
                     class="flex items-center px-6 py-3 text-white/80 hover:bg-white/10 transition-colors">
                     <div class="w-6 h-6 flex items-center justify-center">
@@ -117,7 +109,6 @@
                 </a>
             </nav>
         </div>
-
     </div>
 
     <!-- Main Content -->
@@ -137,7 +128,6 @@
                         Ubah Kategori
                     </h1>
                 </div>
-
             </div>
         </header>
 
@@ -150,7 +140,6 @@
                             Kategori
                         </h2>
                     </div>
-
                     <form id="editCategoryForm" class="p-6"
                         action="<?= base_url('index.php/kategori/update/' . $kategori->id_kategori) ?>" method="post">
                         <!-- Basic Information Section -->
@@ -169,7 +158,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Form Actions -->
                         <div class="flex flex-col sm:flex-row sm:justify-end gap-3 pt-4 border-t border-gray-100">
                             <a href="<?= base_url('kategori') ?>"
@@ -189,16 +177,10 @@
                             </button>
                         </div>
                     </form>
-
-
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
 </body>
 
 </html>

@@ -74,23 +74,23 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'apotik',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
+	'dsn'	=> '', // Data Source Name, biasanya digunakan untuk koneksi PDO. Kosong karena tidak digunakan di sini.
+	'hostname' => 'localhost', // Alamat host database, biasanya 'localhost' jika server database berada di mesin yang sama.
+	'username' => 'root', // Username untuk mengakses database.
+	'password' => '', // Password untuk user database. Kosong berarti tidak ada password (umumnya di localhost).
+	'database' => 'apotik', // Nama database yang akan digunakan aplikasi.
+	'dbdriver' => 'mysqli', // Driver database yang digunakan, 'mysqli' untuk MySQL Improved Extension.
+	'dbprefix' => '', // Prefix tabel database, jika digunakan (berguna untuk multi-aplikasi dalam satu DB).
+	'pconnect' => FALSE, // Persistent connection (koneksi terus-menerus), disarankan FALSE untuk menghindari overload.
+	'db_debug' => (ENVIRONMENT !== 'production'), // Tampilkan error database hanya jika bukan di lingkungan produksi.
+	'cache_on' => FALSE, // Aktifkan caching query. FALSE berarti tidak menggunakan cache.
+	'cachedir' => '', // Lokasi direktori untuk menyimpan file cache query.
+	'char_set' => 'utf8', // Karakter set yang digunakan untuk koneksi ke database.
+	'dbcollat' => 'utf8_general_ci', // Collation untuk koneksi DB, berkaitan dengan aturan pembandingan karakter.
+	'swap_pre' => '', // Digunakan jika ingin mengganti prefix tabel secara dinamis.
+	'encrypt' => FALSE, // Aktifkan enkripsi koneksi database (misalnya SSL), FALSE jika tidak digunakan.
+	'compress' => FALSE, // Aktifkan kompresi data antara client dan server, jika didukung.
+	'stricton' => FALSE, // TRUE untuk mengaktifkan "Strict Mode" SQL, membantu validasi data.
+	'failover' => array(), // Array konfigurasi koneksi cadangan jika koneksi utama gagal.
+	'save_queries' => TRUE // TRUE untuk menyimpan semua query SQL yang dijalankan, berguna untuk debugging dan profiling.
 );

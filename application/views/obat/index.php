@@ -167,7 +167,6 @@
                 </a>
             </nav>
         </div>
-
     </div>
 
     <!-- Main Content -->
@@ -224,20 +223,20 @@
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <i class="ri-search-line text-gray-400"></i>
                             </div>
-                            <input type="text" name="search" value="<?= html_escape($search) ?>" 
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full pl-10 p-2.5" 
+                            <input type="text" name="search" value="<?= html_escape($search) ?>"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full pl-10 p-2.5"
                                 placeholder="Cari nama obat...">
                             <input type="hidden" name="limit" value="<?= $limit ?>">
                         </div>
-                        <button type="submit" 
-                                class="ml-2 px-4 py-2.5 bg-primary text-white rounded-button hover:bg-primary/90 transition">
+                        <button type="submit"
+                            class="ml-2 px-4 py-2.5 bg-primary text-white rounded-button hover:bg-primary/90 transition">
                             Cari
                         </button>
                         <?php if ($search): ?>
-                            <a href="<?= site_url('obat') ?>" 
+                        <a href="<?= site_url('obat') ?>"
                             class="ml-2 px-4 py-2.5 bg-gray-200 text-gray-700 rounded-button hover:bg-gray-300 transition">
-                                Reset
-                            </a>
+                            Reset
+                        </a>
                         <?php endif; ?>
                     </form>
                 </div>
@@ -245,7 +244,7 @@
                 <!-- Di bagian atas tabel, setelah form pencarian -->
                 <?php if ($search): ?>
                 <div class="px-6 py-3 bg-blue-50 text-blue-800 text-sm">
-                    Menampilkan hasil pencarian untuk: <strong>"<?= html_escape($search) ?>"</strong>. 
+                    Menampilkan hasil pencarian untuk: <strong>"<?= html_escape($search) ?>"</strong>.
                     Ditemukan <?= $totalObat ?> obat.
                 </div>
                 <?php endif; ?>
@@ -321,7 +320,6 @@
                         </p>
                     </div>
                     <div class="flex items-center space-x-2">
-
                         <!-- Di bagian pagination, update link seperti ini: -->
                         <nav class="flex items-center">
                             <!-- Tombol Prev -->
@@ -331,7 +329,6 @@
                                     <i class="ri-arrow-left-s-line"></i>
                                 </div>
                             </a>
-
                             <!-- Tombol Halaman -->
                             <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                             <a href="?page=<?= $i ?>&limit=<?= $limit ?><?= $search ? '&search='.urlencode($search) : '' ?>"
@@ -339,7 +336,6 @@
                                 <?= $i ?>
                             </a>
                             <?php endfor; ?>
-
                             <!-- Tombol Next -->
                             <a href="?page=<?= min($totalPages, $page + 1) ?>&limit=<?= $limit ?><?= $search ? '&search='.urlencode($search) : '' ?>"
                                 class="px-2 py-1 border border-gray-200 rounded-r-md text-gray-500 hover:bg-gray-50">

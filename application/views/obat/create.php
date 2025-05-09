@@ -109,22 +109,7 @@
                 </a>
             </nav>
         </div>
-        <div class="p-4">
-            <a href="#" class="flex items-center px-4 py-2 text-white/80 hover:bg-white/10 rounded transition-colors">
-                <div class="w-6 h-6 flex items-center justify-center">
-                    <i class="ri-settings-line"></i>
-                </div>
-                <span class="ml-3 text-sm font-medium">Settings</span>
-            </a>
-            <a href="#" class="flex items-center px-4 py-2 text-white/80 hover:bg-white/10 rounded transition-colors">
-                <div class="w-6 h-6 flex items-center justify-center">
-                    <i class="ri-logout-box-line"></i>
-                </div>
-                <span class="ml-3 text-sm font-medium">Logout</span>
-            </a>
-        </div>
     </div>
-
     <!-- Main Content -->
     <div class="main-content min-h-screen">
         <!-- Header -->
@@ -142,7 +127,6 @@
                         Tambah Obat
                     </h1>
                 </div>
-
             </div>
         </header>
 
@@ -158,7 +142,6 @@
                             Silakan isi detail obat yang ingin ditambahkan ke inventaris
                         </p>
                     </div>
-
                     <form id="addMedicineForm" class="p-6" action="<?= base_url('index.php/obat/store') ?>"
                         method="post" enctype="multipart/form-data">
                         <!-- Basic Information Section -->
@@ -166,7 +149,6 @@
                             <h3 class="text-md font-medium text-gray-700 mb-4">
                                 Informasi Dasar
                             </h3>
-
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label for="medicineName" class="block text-sm font-medium text-gray-700 mb-1">Nama
@@ -178,7 +160,6 @@
                                         Medicine name is required
                                     </div>
                                 </div>
-
                                 <div class="md:row-span-2">
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Gambar Obat</label>
                                     <div id="imageDropzone"
@@ -219,7 +200,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Classification Section -->
                         <div class="mb-8">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -249,7 +229,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Inventory Details Section -->
                         <div class="mb-8">
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -274,7 +253,6 @@
                                         Stock quantity is required
                                     </div>
                                 </div>
-
                                 <div>
                                     <label for="medicinePrice"
                                         class="block text-sm font-medium text-gray-700 mb-1">Harga <span
@@ -312,7 +290,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Form Actions -->
                         <div class="flex flex-col sm:flex-row sm:justify-end gap-3 pt-4 border-t border-gray-100">
                             <a href="<?= site_url('obat/index') ?>" data-readdy="true"
@@ -336,9 +313,6 @@
             </div>
         </div>
     </div>
-
-
-
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Set default date to tomorrow

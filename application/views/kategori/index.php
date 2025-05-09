@@ -167,9 +167,7 @@
                 </a>
             </nav>
         </div>
-
     </div>
-
     <!-- Main Content -->
     <div class="main-content min-h-screen">
         <!-- Header -->
@@ -181,7 +179,6 @@
 
             </div>
         </header>
-
         <!-- Dashboard Content -->
         <div class="p-6">
             <div class="bg-white rounded shadow mb-6">
@@ -199,9 +196,7 @@
                                 </div>
                                 Hapus Semua
                             </button>
-
                         </form>
-
                         <!-- Tombol Tambah Kategori -->
                         <a href="<?= site_url('kategori/create') ?>" data-readdy="true">
                             <button
@@ -309,10 +304,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
             <!-- Delete by id -->
             <div id="deleteKategoriModal"
                 class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 hidden">
@@ -344,8 +335,6 @@
                     </div>
                 </div>
             </div>
-
-
             <!-- delete all categories -->
             <div id="deleteModal"
                 class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 hidden">
@@ -378,10 +367,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 
     <?php if ($this->session->flashdata('success')): ?>
     <!-- Success Notification -->
@@ -447,7 +434,6 @@
         modal.classList.add('hidden');
     });
     </script>
-
 </body>
 
 </html>

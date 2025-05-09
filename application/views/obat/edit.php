@@ -94,7 +94,6 @@
         </div>
         <div class="flex-1 overflow-y-auto">
             <nav class="mt-6">
-
                 <a href="<?= site_url('obat/index') ?>" class="flex items-center px-6 py-3 bg-white/20 text-white">
                     <div class="w-6 h-6 flex items-center justify-center">
                         <i class="ri-medicine-bottle-line"></i>
@@ -110,7 +109,6 @@
                 </a>
             </nav>
         </div>
-
     </div>
 
     <!-- Main Content -->
@@ -146,7 +144,6 @@
                             Silakan isi detail obat yang ingin diubah ke inventaris
                         </p>
                     </div>
-
                     <form id="editMedicineForm" class="p-6"
                         action="<?= base_url('index.php/obat/update/' . $obat->id_obat) ?>" method="post"
                         enctype="multipart/form-data">
@@ -155,7 +152,6 @@
                             <h3 class="text-md font-medium text-gray-700 mb-4">
                                 Informasi Dasar
                             </h3>
-
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label for="medicineName" class="block text-sm font-medium text-gray-700 mb-1">Nama
@@ -238,7 +234,6 @@
                                                 <?= $category->nama_kategori ?>
                                             </option>
                                             <?php endforeach; ?>
-
                                         </select>
                                         <div
                                             class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
@@ -309,7 +304,7 @@
                                             value="<?= $obat->expiration_date ?>" required />
                                     </div>
                                     <div class="hidden error-message text-red-500 text-xs mt-1">
-                                       Tanggal Kadaluwarsa
+                                        Tanggal Kadaluwarsa
                                     </div>
                                 </div>
                             </div>
@@ -317,7 +312,7 @@
 
                         <!-- Form Actions -->
                         <div class="flex flex-col sm:flex-row sm:justify-end gap-3 pt-4 border-t border-gray-100">
-                            <a href="" data-readdy="true"
+                            <a href="<?= site_url('obat/index') ?>" data-readdy="true"
                                 class="px-6 py-2 border border-gray-300 rounded-button whitespace-nowrap text-gray-700 font-medium hover:bg-gray-50 transition text-center">
                                 Batal
                             </a>

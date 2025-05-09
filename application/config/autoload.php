@@ -58,6 +58,12 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
+// Baris ini digunakan untuk mengatur autoload library di CodeIgniter.
+// 'database' akan secara otomatis memuat library database, sehingga Anda bisa langsung menggunakan fitur seperti $this->db
+// tanpa harus memuatnya secara manual di setiap controller atau model.
+// 'session' akan secara otomatis memuat library session, memungkinkan Anda untuk langsung menggunakan $this->session
+// untuk menyimpan dan mengambil data sesi (seperti login user) di seluruh aplikasi.
+// Dengan autoload, kedua library ini akan tersedia secara global begitu aplikasi dijalankan.
 $autoload['libraries'] = array('database', 'session');
 
 /*
@@ -89,7 +95,17 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
+// Baris ini mengatur helper-helper yang akan dimuat secara otomatis oleh CodeIgniter setiap kali aplikasi dijalankan.
+// 'url'    => Menyediakan fungsi bantu untuk manipulasi URL, seperti base_url(), site_url(), dll.
+// 'html'   => Mempermudah pembuatan elemen HTML melalui fungsi seperti br(), img(), heading(), dll.
+// 'file'   => Menyediakan fungsi bantu untuk operasi file seperti read_file(), write_file(), dll.
+// 'form'   => Membantu dalam pembuatan elemen form dan validasi, seperti form_open(), form_input(), dll.
+// 'text'   => Berisi fungsi bantu untuk manipulasi teks, seperti word_limiter(), character_limiter(), dll.
+// 'rupiah' => Kemungkinan adalah helper buatan sendiri (custom helper) untuk menangani format mata uang Rupiah, 
+//            misalnya fungsi seperti format_rupiah(1000000) => "Rp 1.000.000"
+// Dengan autoload ini, semua helper di atas bisa langsung digunakan tanpa perlu dipanggil manual di controller atau view.
 $autoload['helper'] = array('url','html', 'file', 'form', 'text', 'rupiah');
+
 
 /*
 | -------------------------------------------------------------------
